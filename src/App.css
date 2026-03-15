@@ -185,5 +185,17 @@
 
 
 
+.card{
+  border: 2px solid goldenrod;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: fit-content;
+  max-height: fit-content;
+  
+}
+
+
+
 
 

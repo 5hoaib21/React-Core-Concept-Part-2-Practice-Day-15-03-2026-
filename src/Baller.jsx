@@ -12,7 +12,7 @@ return(
   <div>
   <h2>Bangu Baller</h2>
   {
-    balls >6 && <p>Your Over is Up, Drop the Ball</p>
+    balls > 5 && <p>Your Over is Up, Drop the Ball</p>
   }
   <h1>Balls: {balls}</h1>
     <button onClick={handleBalls} className="counter">Ball..!</button>
