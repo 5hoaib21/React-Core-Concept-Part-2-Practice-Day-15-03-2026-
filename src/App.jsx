@@ -1,29 +1,34 @@
 import Baller from "./Baller";
-import Users from "./Users";
+// import Users from "./Users";
 import Counter from "./counter";
 import Batsman from "./Batsman";
-import Friends from './Friends'
+// import Friends from './Friends'
+import Posts from "./Posts";
 import { Suspense, useState } from "react";
-
-
-
-const fetchUsers = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json())
-
-
-const fetchFriends = async()=>{
-  const res = await fetch('https://jsonplaceholder.typicode.com/users');
-  return res.json();
-}
-
-
-
-
 import "./App.css";
+
+
+
+// const fetchUsers = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json())
+
+
+// const fetchFriends = async()=>{
+//   const res = await fetch('https://jsonplaceholder.typicode.com/users');
+//   return res.json();
+// }
+
+
+
+
+const fetchPosts= async()=>{
+const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+return res.json();
+}
 
 function App() {
 
-  const friendsPromise = fetchFriends();
-
+  // const friendsPromise = fetchFriends();
+    const postsPromise = fetchPosts();
 
   const [count, setCount] = useState(0);
 
@@ -53,16 +58,28 @@ function App() {
     <>
       <section id="center">
         <div>
-          <h1>Get started</h1>
+          
+          
+
+          <Suspense fallback={<h4>Post are coming...</h4>}>
+            <Posts postsPromise={postsPromise}></Posts>
+          </Suspense>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
 
 
         {/* <Suspense fallback={<h3>Loading...</h3>}>
           <Users fetchUsers ={fetchUsers}></Users>
         </Suspense> */}
 
-        <Suspense fallback={<h3 className="card">Friends are coming for treat</h3>}>
+        {/* <Suspense fallback={<h3 className="card">Friends are coming for treat</h3>}>
           <Friends friendsPromise={friendsPromise}></Friends>
-        </Suspense>
+        </Suspense> */}
           
         <Baller></Baller>
         <Batsman></Batsman>
